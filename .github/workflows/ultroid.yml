@@ -34,7 +34,7 @@ jobs:
            cd ultroid
            wget https://raw.githubusercontent.com/TeamUltroid/Ultroid/dev/Dockerfile
            echo "RUN bash resources/startup/startup.sh" >> Dockerfile
-           docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t ultroid
+           docker build . --rm --force-rm --compress --env-file .env --no-cache=true --pull --file Dockerfile -t ultroid
            docker run --privileged --rm -i ultroid
        - name: Loop workflow
          continue-on-error: true
