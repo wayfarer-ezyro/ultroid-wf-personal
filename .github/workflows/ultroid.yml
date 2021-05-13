@@ -1,6 +1,6 @@
 #Docker Work na BSDK
 
-name: setting up environment
+name: Ultroid Workflow
 
 on:
     push:
