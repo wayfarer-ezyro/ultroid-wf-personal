@@ -35,7 +35,7 @@ jobs:
          run: |
            cd ultroid
            wget https://raw.githubusercontent.com/TeamUltroid/Ultroid/pytgcalls/Dockerfile
-           echo "\nCMD bash resources/startup/startup.sh" >> Dockerfile
+           printf "\nCMD bash resources/startup/startup.sh" >> Dockerfile
            docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t ultroid
            docker run --privileged --env-file .env --rm -i ultroid
        - name: Loop workflow
