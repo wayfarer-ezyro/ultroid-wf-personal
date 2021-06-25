@@ -8,7 +8,7 @@ on:
     
 env:
  GitHubMail: "error@notavailable.live"
- GitHubName: "ProgrammingError"
+ GitHubName: "techierror"
 jobs:
   build:
     runs-on: ubuntu-20.04
