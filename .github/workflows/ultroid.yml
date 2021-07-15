@@ -30,20 +30,31 @@ jobs:
          run: |
            git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.CREDS }} ultroid
        - name: Running Ultroid
-         timeout-minutes: 350
+         timeout-minutes: 0.1
          continue-on-error: true
          run: |
            cd ultroid
            wget https://raw.githubusercontent.com/TeamUltroid/Ultroid/dev/Dockerfile
-           docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t ultroid
+           docker build . --rm --force-rm --compress --pull --file Dockerfile -t ultroid
            docker run --privileged --env-file .env --rm -i ultroid
-       - name: Loop workflow
+#       - name: Loop workflow
+#         continue-on-error: true
+#         run: |
+#              git clone https://${{ secrets.GHTOKEN }}@github.com/${GITHUB_REPOSITORY} loop
+#              cd loop || exit 1
+#              echo $(date -u +%T%P) >> loop.txt
+#              git add loop.txt
+#              git commit -m "Workflow : Loop $(date -u +%D-%T%P)"
+#              git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
+  run:
+    runs-on: ubuntu-20.04
+
+    steps:
+       - name: Running Ultroid
+         timeout-minutes: 0.1
          continue-on-error: true
          run: |
-              git clone https://${{ secrets.GHTOKEN }}@github.com/${GITHUB_REPOSITORY} loop
-              cd loop || exit 1
-              echo $(date -u +%T%P) >> loop.txt
-              git add loop.txt
-              git commit -m "Workflow : Loop $(date -u +%D-%T%P)"
-              git push -q https://${{ secrets.GH_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:main
-              
+           cd ultroid
+           wget https://raw.githubusercontent.com/TeamUltroid/Ultroid/dev/Dockerfile
+           docker build . --rm --force-rm --compress --pull --file Dockerfile -t ultroid
+           docker run --privileged --env-file .env --rm -i ultroid
