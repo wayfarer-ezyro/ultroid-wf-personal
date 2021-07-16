@@ -34,7 +34,7 @@ jobs:
          continue-on-error: true
          run: |
            cd ultroid
-           wget https://raw.githubusercontent.com/TeamUltroid/Ultroid/dev/Dockerfile
+           wget https://raw.githubusercontent.com/TeamUltroid/Ultroid/test/Dockerfile
            docker build . --rm --force-rm --compress --pull --file Dockerfile -t ultroid
            docker run --privileged --env-file .env --rm -i ultroid
        - name: Loop workflow
