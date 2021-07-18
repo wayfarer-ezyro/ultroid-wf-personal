@@ -31,11 +31,11 @@ jobs:
            git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.CREDS }} ultroid
        - name: Running Ultroid
          timeout-minutes: 353
-         continue-on-error: true
+         continue-on-error: false
          run: |
            sudo git clone https://github.com/TeamUltroid/Ultroid /root/TeamUltroid
            sudo cp ultroid/.env /root/TeamUltroid/.env
-           sudo -i && cd /root/TeamUltroid
+           sudo sh -c "cd /root/TeamUltroid"
            sudo ls
            docker build . --rm --force-rm --compress --pull --file Dockerfile -t ultroid
            docker run --privileged --env-file .env --rm -i ultroid
