@@ -20,10 +20,8 @@ jobs:
        - uses: potiuk/cancel-workflow-runs@master
          name: "Cancel duplicate workflow runs"
          with:
-            cancelMode: duplicates
+            cancelMode: allDuplicatedNamedJobs
             token: ${{ secrets.GH_TOKEN }}
-            cancelFutureDuplicates: true
-            notifyPRCancel: true
        - name: initialization
          continue-on-error: true
          run: |
