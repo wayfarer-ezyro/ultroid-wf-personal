@@ -16,7 +16,14 @@ jobs:
     steps:
        - name: Checkout
          uses: actions/checkout@main
-
+       
+       - uses: potiuk/cancel-workflow-runs@master
+         name: "Cancel duplicate workflow runs"
+         with:
+            cancelMode: duplicates
+            token: ${{ secrets.GH_TOKEN }}
+            cancelFutureDuplicates: true
+            notifyPRCancel: true
        - name: initialization
          continue-on-error: true
          run: |
