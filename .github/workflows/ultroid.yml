@@ -9,7 +9,7 @@ on:
 env:
  GitHubMail: "error@notavailable.live"
  GitHubName: "techierror"
- GITHUB_TOKEN: secrets.GH_TOKEN
+ GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
  PYPI_REPO: "CrazyCreatorr/pyUltroid"
 jobs:
   build:
