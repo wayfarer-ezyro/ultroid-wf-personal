@@ -38,14 +38,11 @@ jobs:
             git config --global user.email ${GitHubMail}
             git config --global credential.helper store
             echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
-            sudo apt-get update && apt upgrade -y && apt-get install sudo apt-utils -y
+            sudo apt-get update && sudo apt upgrade -y && sudo apt-get install sudo apt-utils -y
             sudo apt-get install -y \
             bash \
-            build-essential \
             cmake \
             curl \
-            debian-archive-keyring \
-            debian-keyring \
             ffmpeg \
             gcc \
             git \
@@ -77,7 +74,6 @@ jobs:
             libxml2-dev \
             libxslt1-dev \
             libyaml-dev \
-            linux-headers-amd64 \
             make \
             mediainfo \
             megatools \
@@ -93,10 +89,8 @@ jobs:
             pdftk \
             pkg-config \
             procps \
-            python3-dev \
             texinfo \
             unzip \
-            util-linux \
             wget \
             wkhtmltopdf \
             xvfb \
