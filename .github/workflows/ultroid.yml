@@ -38,7 +38,7 @@ jobs:
             git config --global user.email ${GitHubMail}
             git config --global credential.helper store
             echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
-            sudo apt-get update && sudo apt upgrade -y && sudo apt-get install sudo apt-utils -y
+            sudo apt-get update && sudo apt upgrade -y
             sudo apt-get install -y \
             bash \
             cmake \
@@ -52,7 +52,7 @@ jobs:
             megatools \
             neofetch \
             wkhtmltopdf \
-            zip \
+            zip
             sudo apt-get autoremove --purge
 
        - name: cloning repo
