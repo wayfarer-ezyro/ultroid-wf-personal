@@ -10,7 +10,6 @@ env:
  GitHubMail: "error@notavailable.live"
  GitHubName: "techierror"
  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
- PYPI_REPO: "CrazyCreatorr/pyUltroid"
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -19,6 +18,13 @@ jobs:
        - name: Checkout
          uses: actions/checkout@main
        
+       - uses: actions/checkout@v2
+       - name: Set up Python
+         uses: actions/setup-python@v2
+         with:
+            python-version: '3.9.9'
+            architecture: x64
+
        - uses: styfle/cancel-workflow-action@0.9.1
          name: "Cancel duplicate workflow runs"
          with:
